@@ -31,7 +31,7 @@ Query arguments can be passed by named list or vector.
 prev_aapl <- polygon("/v2/aggs/ticker/AAPL/prev", args = list(unadjusted = "true"))
 ```
 
-You can also add addtional arguments for httr::GET().
+You can also add addtional arguments for `httr::GET()`.
 
 ```r
 prev_aapl <- polygon("/v2/aggs/ticker/AAPL/prev", args = list(unadjusted = "true"), httr::verbose())
