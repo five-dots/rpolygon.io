@@ -1,7 +1,7 @@
 R Polygon.io Package
 ===
 
-This is a simple wrapper package to interact with [Polygon.io](https://polygon.io/)'s RESTful API.
+This is a simple wrapper package to interact with [Polygon.io](https://polygon.io/)'s RESTful API. This package is now in Beta stage.
 
 # Installation
 
