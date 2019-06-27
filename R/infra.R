@@ -1,5 +1,5 @@
 
-base_url <- "https://api.polygon.io/"
+base_url <- "https://api.polygon.io"
 
 polygon_key <- function() {
   Sys.getenv("POLYGON_KEY")
@@ -11,15 +11,6 @@ has_key <- function() {
 
 merge_args <- function(args = NULL) {
   c(args, list(apiKey = polygon_key()))
-}
-
-set_http_version <- function() {
-  ## HACK Force to use HTTP1.1 (2 means version 1.1),
-  ## to avoid the following error.
-  ## Error in curl::curl_fetch_memory(url, handle = handle) :
-  ##   Error in the HTTP2 framing layer
-  httr::set_config(httr::config(http_version = 2))
-  invisible()
 }
 
 check_http_status <- function(res) {

@@ -14,6 +14,10 @@ polygon <- function(path, args = NULL, ...) {
   res <- httr::GET(url,
                    query = merge_args(args),
                    httr::accept_json(),
+                   ## HACK Force to use HTTP1.1 (2 means version 1.1),
+                   ## to avoid the following error.
+                   ## Error in curl::curl_fetch_memory(url, handle = handle) :
+                   ##   Error in the HTTP2 framing layer
                    httr::config(http_version = 2),
                    ...)
 
