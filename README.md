@@ -8,7 +8,7 @@ This is a simple wrapper package to interact with [Polygon.io](https://polygon.i
 Use devtools to install this package, as it's not on CRAN.
 
     install.packages("devtools")
-    devtools::install_github("quandl/quandl-r")
+    devtools::install_github("five-dots/rpolygon.io")
 
 # Usage
 
