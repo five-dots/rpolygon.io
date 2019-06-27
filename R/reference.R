@@ -1,27 +1,22 @@
-
-## "splits" is not supported. Use v1/meta/symbols/{symbol}/splits insted.
-valid_reference_types <- c("tickers", "markets", "locales", "types")
-
-#' Retrieve reference data
+#' GET data from Polygon.io API
 #'
-#' @param type Reference type
-#' @param args Query arguments
+#' @param path API path by a character scalar
+#' @param args Query arguments by named list or named vector
 #' @param ... Addtional arguments for httr::GET()
 #'
-#' @return list(status, results)
+#' @return API response parsed by jsonlite::fromJSON()
 #' @export
-polygon_reference <- function(type = "markets", args = NULL, ...) {
-  stopifnot(has_key(),
-            length(type) == 1,
-            type %in% valid_reference_types)
+polygon <- function(path, args = NULL, ...) {
+  if (!has_key()) stop("POLYGON_KEY not found", call. = FALSE)
+  stopifnot(length(path) == 1, is.character(path))
 
-  set_http_version()
+  url <- paste0(base_url, path)
+  res <- httr::GET(url,
+                   query = merge_args(args),
+                   httr::accept_json(),
+                   httr::config(http_version = 2),
+                   ...)
 
-  req_url <- glue::glue("{base_url}v2/reference/{type}")
-  queries <- merge_args(args)
-  response <- httr::GET(req_url, query = queries, ...)
-
-  json <- httr::content(response, as = "text", encoding = "ISO-8859-1")
-  ## TODO Check status
-  jsonlite::fromJSON(json)
+  check_http_status(res)
+  parse(res)
 }
