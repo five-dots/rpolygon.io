@@ -34,7 +34,7 @@ prev_aapl <- polygon("/v2/aggs/ticker/AAPL/prev", args = list(unadjusted = "true
 You can also add addtional arguments for httr::GET().
 
 ```r
-last_aapl <- polygon("/v1/last/stocks/AAPL", httr::verbose())
+prev_aapl <- polygon("/v2/aggs/ticker/AAPL/prev", args = list(unadjusted = "true"), httr::verbose())
 ```
 
 # Resources
