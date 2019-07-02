@@ -21,7 +21,7 @@ check_http_status <- function(res) {
 }
 
 extract_error_str <- function(str) {
-  stringr::str_match(str, "^\n\\s*(.*)\n\\s*$")[,2]
+  stringr::str_match(str, "^\n\\s*(.*)\n\\s*$")[, 2]
 }
 
 extract_error <- function(text) {
