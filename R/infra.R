@@ -1,16 +1,13 @@
-
-base_url <- "https://api.polygon.io"
-
-polygon_key <- function() {
+get_key <- function() {
   Sys.getenv("POLYGON_KEY")
 }
 
 has_key <- function() {
-  !identical(polygon_key(), "")
+  !identical(get_key(), "")
 }
 
 merge_args <- function(args = NULL) {
-  c(args, list(apiKey = polygon_key()))
+  c(args, list(apiKey = get_key()))
 }
 
 check_http_status <- function(res) {
@@ -52,14 +49,18 @@ parse <- function(res) {
   jsonlite::fromJSON(text, simplifyVector = TRUE)
 }
 
+parse_dt_from_msec <- function(msec, tz = "America/New_York") {
+  stopifnot(is.numeric(msec), length(msec) > 0,
+            is.character(tz), length(tz) == 1)
+  as.POSIXct(msec/1000, origin = "1970-01-01", tz = tz) + 0.0005
+}
+
 #' Pipe operator
-#'
-#' See \code{magrittr::\link[magrittr]{\%>\%}} for details.
-#'
 #' @name %>%
-#' @rdname pipe
-#' @keywords internal
-#' @export
 #' @importFrom magrittr %>%
-#' @usage lhs \%>\% rhs
+NULL
+
+#' dplyr pronoun
+#' @name .data
+#' @importFrom rlang .data
 NULL

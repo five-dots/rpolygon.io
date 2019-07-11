@@ -22,19 +22,19 @@ Then, you can use `polygon()` function by passing an API path as the first argum
 
 ```r
 library(rpolygon.io)
-last_aapl <- polygon("/v1/last/stocks/AAPL")
+last_aapl <- rpolygon("/v1/last/stocks/AAPL")
 ```
 
 Query arguments can be passed by named list or vector.
 
 ```r
-prev_aapl <- polygon("/v2/aggs/ticker/AAPL/prev", args = list(unadjusted = "true"))
+prev_aapl <- rpolygon("/v2/aggs/ticker/AAPL/prev", args = list(unadjusted = "true"))
 ```
 
 You can also add addtional arguments for `httr::GET()`.
 
 ```r
-prev_aapl <- polygon("/v2/aggs/ticker/AAPL/prev", args = list(unadjusted = "true"), httr::verbose())
+prev_aapl <- rpolygon("/v2/aggs/ticker/AAPL/prev", args = list(unadjusted = "true"), httr::verbose())
 ```
 
 # Resources

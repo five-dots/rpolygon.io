@@ -14,11 +14,14 @@ Suggests:
     testthat
 RoxygenNote: 6.1.1
 Imports: 
-    magrittr,
-    jsonlite,
+    dplyr,
     glue,
     httr,
+    jsonlite,
+    lubridate,
+    magrittr,
     purrr,
+    rlang,
     rvest,
-    xml2,
-    stringr
+    stringr,
+    xml2
