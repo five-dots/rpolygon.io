@@ -19,10 +19,9 @@ rpolygon <- function(endpoint, args = NULL, ...) {
                    ## to avoid the following error.
                    ## Error in curl::curl_fetch_memory(url, handle = handle) :
                    ##   Error in the HTTP2 framing layer
-                   httr::config(http_version = 2),
+                   ## httr::config(http_version = 2),
                    ...)
 
   check_http_status(res)
   parse(res)
 }
-
