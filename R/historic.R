@@ -50,6 +50,7 @@ parse_trades <- function(df) {
                   size = .data$s,
                   exchange = .data$e) %>%
     dplyr::select(.data$date_time,
+                  .data$t,
                   .data$price,
                   .data$size,
                   .data$exchange,

@@ -11,8 +11,9 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests: 
+    httptest,
     testthat
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 Imports: 
     dplyr,
     glue,
